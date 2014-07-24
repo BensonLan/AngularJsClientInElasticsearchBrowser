@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <title>Benson | Simple search client for ElasticSearch</title>
+    <script type="text/javascript" src="angular/angular.js"></script>
+    <script type="text/javascript" src="elasticsearch-js/elasticsearch.angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+</head>
+<body ng-app='record' ng-controller='recordCtrl'>
+
+<!-- Title and search box -->
+<header class="jumbotron">
+    <h1 class="title">Record</h1>
+    <div class="searchBoxContainer">
+        <input type='text' class="searchBox" placeholder="Search" autofocus ng-model='query' ng-change="search()">
+    </div>
+</header>
+
+<!-- Listing of search results -->
+<main class="resultsContainer">
+    <section class='results'>
+        <p class='no-results' ng-hide='results.length'>No Results</p>
+        <article class='result' ng-cloak ng-repeat='result in results track by $id(result)'>
+            <h2>{{result.SiteName}}</h2>
+            <p>{{result.LineName}}</p>
+        </article>
+    </section>
+</main>
+
+<!-- Load resources -->
+
+</body>
+</html>
